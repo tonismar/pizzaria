@@ -1,8 +1,12 @@
 <?php
 include_once('../model/Pessoa.php');
+include_once('../db/Database.php');
 
 class PessoaDAO extends Database {
-    public function __construct(){}
+    public function __construct(){
+        $this->connect();
+    }
+
     private function  __clone(){}
 
     public function __destruct() {

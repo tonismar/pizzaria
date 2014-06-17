@@ -24,14 +24,22 @@ class Pessoa {
         unset($var);
     }
 
-    public function setEndereco($rua, $numero, $bairro, $complemento="") {
+/*    public function setEndereco($rua, $numero, $bairro, $complemento="") {
         $this->Endereco->setEndereco($rua, $numero, $bairro, $complemento);
+    }
+*/
+    public function setEndereco($endereco) {
+        $this->endereco = $endereco;
     }
 
     public function getEndereco() {
-        return $this->Endereco->getEndereco();
+        return $this->endereco;
     }
 
+/*    public function getEndereco() {
+        return $this->Endereco->getEndereco();
+    }
+*/
     public function setNome($nome) {
         $this->nome = $nome;
     }

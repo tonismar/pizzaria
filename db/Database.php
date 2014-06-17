@@ -4,6 +4,9 @@ abstract class Database {
     public $conexao;
 
     function __construct() {
+    }
+
+    public function connect() {
         try {
             $this->conexao = new PDO('mysql:host=127.0.0.1; port=3306; dbname=pizzaria', 'default', 'default');
         } catch ( PDOException $e) {
@@ -15,7 +18,7 @@ abstract class Database {
         $this->conexao = null;
     }
 
-    function selectDB($sql, $params=null, $class=null) {
+    public function selectDB($sql, $params=null, $class=null) {
         $query = $this->conexao->prepare($sql);
         $query->execute($params);
 
