@@ -4,7 +4,6 @@ include_once('../dao/PessoaDAO.php');
 class ControllerPessoa {
 
     private $PessoaDAO;
-    private $ViewPessoa;
 
     public function __construct() {
         $this->PessoaDAO = new PessoaDAO();

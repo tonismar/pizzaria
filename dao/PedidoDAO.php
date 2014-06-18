@@ -1,13 +1,14 @@
-<?php
-include_once('../model/Pessoa.php');
+<?
+include_once('../model/Pedido.php');
 include_once('../db/Database.php');
 
-class PessoaDAO extends Database {
-    public function __construct(){
-        $this->connect();
+class PedidoDAO extends Database {
+
+    public function __construct() {
+        $this->connecti();
     }
 
-    public function __destruct() {
+   public function __destruct() {
         foreach ($this as $key => $value) {
             unset($this->key);
         }
@@ -19,15 +20,15 @@ class PessoaDAO extends Database {
 
     public function load($fields="*", $add="") {
         if(strlen($add)>0) $add = " ".$add;
-        $sql = "SELECT $fields FROM  pessoas$add";
-        return $this->selectDB($sql, null, 'Pessoa');
+        $sql = "SELECT $fields FROM  pedidos$add";
+        return $this->selectDB($sql, null, 'Pedido');
     }
 
     public function insert($fields, $params=null) {
         $numparams="";
         for ($i=0; $i<count($params); $i++) $numparams.=",?";
         $numparams = substr($numparams, 1);
-        $sql = "INSERT INTO pessoas ($fields) VALUES ($numparams)";
+        $sql = "INSERT INTO pedidos ($fields) VALUES ($numparams)";
         $t=$this->insertDB($sql, $params);
         return $t;
     }
@@ -36,14 +37,14 @@ class PessoaDAO extends Database {
         $fields_T="";
         for($i=0; $i<count($fields); $i++) $fields_T.=", $fields[$i] = ?";
         $fields_T = substr($fields_T, 2);
-        $sql = "UPDATE pessoas SET $fields_T";
+        $sql = "UPDATE pedidos SET $fields_T";
         if(isset($where)) $sql .= " WHERE $where";
         $t=$this->updateDB($sql, $params);
         return $t;
     }
 
     public function delete($where=null, $params=null) {
-        $sql = "DELETE FROM pessoas";
+        $sql = "DELETE FROM pedidos";
         if(isset($where)) $sql .= " WHERE $where";
         $t=$this->deleteDB($sql, $params);
         return $t;
