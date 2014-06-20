@@ -14,7 +14,7 @@ class ControllerPedido {
     }
 
     public function buscarPedido() {
-
+        return $this->PedidoDAO->load();
     }
 
     public function cancelarPedido() {

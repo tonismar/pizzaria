@@ -8,6 +8,19 @@ class Pedido {
     private $total;
     private $Pizzas = array();
 
+    public function __construct() {
+    }
+
+    public function __destruct() {
+        foreach ($this as $key => $value) {
+            unset($this->key);
+        }
+        foreach(array_keys(get_defined_vars()) as $var) {
+            unset(${"$var"});
+        }
+        unset($var);
+    }
+
     public function setData($data) {
         $this->data = $data;
     }

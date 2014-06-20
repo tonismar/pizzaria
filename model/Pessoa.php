@@ -1,17 +1,14 @@
 <?php
 include_once("Endereco.php");
-include_once("../dao/PessoaDAO.php");
 
 class Pessoa {
 
     private $nome;
     private $telefone;
     private $Endereco;
-    private $Dao;
 
     public function __construct() {
         $this->Endereco = new Endereco();
-        $this->Dao = new PessoaDAO();
     }
 
     public function __destruct() {

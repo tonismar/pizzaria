@@ -19,6 +19,9 @@
     </form>
 
     <br /><br />
-    <a href="lista.php">listar</a>
+    <ul>
+        <li><a href="lista_pessoa.php">Listar Pessao</a></li>
+        <li><a href="lista_pedido.php">Listar Pedido</a></li>
+    </ul>
 </body>
 </html>

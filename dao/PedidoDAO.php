@@ -5,7 +5,7 @@ include_once('../db/Database.php');
 class PedidoDAO extends Database {
 
     public function __construct() {
-        $this->connecti();
+        $this->connect();
     }
 
    public function __destruct() {
