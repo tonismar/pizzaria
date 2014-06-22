@@ -6,6 +6,7 @@ class Pessoa {
     private $nome;
     private $telefone;
     private $Endereco;
+    private $id;
 
     public function __construct() {
         $this->Endereco = new Endereco();
@@ -51,5 +52,13 @@ class Pessoa {
 
     public function getTelefone() {
         return $this->telefone;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function getId() {
+        return $this->id;
     }
 }

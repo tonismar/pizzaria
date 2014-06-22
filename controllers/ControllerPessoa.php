@@ -13,7 +13,8 @@ class ControllerPessoa {
 
     }
 
-    public function buscarPessoa() {
-        return $this->PessoaDAO->load();
+    public function buscarPessoa($telefone) {
+        $where = "where telefone = ".$telefone;
+        return $this->PessoaDAO->load("*", $where);
     }
 }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
     <title>Pizzaria</title>
 </head>
 <body>
-    <form action="" method="post">
+<!--     <form action="" method="post">
         <label for="nome">Nome</label>
         <input type="text" name="nome" value="" size="50"><br /><br />
 
@@ -17,11 +17,11 @@
 
         <input type="submit" name="Salvar" value="Salvar">
     </form>
-
+ -->
+    <form action="lista_pessoa.php" method="post">
+        <label for="telefone">Telefone</label>
+        <input type="text" name="telefone" value="" size="20"><br /><br />
+        <input type="submit" name="Buscar" value="Buscar">
     <br /><br />
-    <ul>
-        <li><a href="lista_pessoa.php">Listar Pessao</a></li>
-        <li><a href="lista_pedido.php">Listar Pedido</a></li>
-    </ul>
 </body>
 </html>

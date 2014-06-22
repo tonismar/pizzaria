@@ -23,9 +23,9 @@ abstract class Database {
         $query->execute($params);
 
         if (isset($class)) {
-            $result = $query->fetchAll(PDO::FETCH_CLASS,$class) or die(print_r($query->errorInfo(), true));
+            $result = $query->fetchAll(PDO::FETCH_CLASS,$class);
         } else {
-            $result = $query->fetchAll(PDO::FETCH_OBJ) or die(print_r($query->errorInfo(), true));
+            $result = $query->fetchAll(PDO::FETCH_OBJ);
         }
 
         self::__destruct();

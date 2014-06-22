@@ -13,8 +13,9 @@ class ControllerPedido {
 
     }
 
-    public function buscarPedido() {
-        return $this->PedidoDAO->load();
+    public function buscarPedido($pessoa) {
+        $where = "where id_pessoa = ".$pessoa;
+        return $this->PedidoDAO->load("*", $where);
     }
 
     public function cancelarPedido() {
