@@ -10,7 +10,7 @@ class ControllerPessoa {
     }
 
     public function cadastrarPessoa($Pessoa) {
-
+        return $this->PessoaDAO->insert('nome,telefone,endereco',$Pessoa);
     }
 
     public function buscarPessoa($telefone) {

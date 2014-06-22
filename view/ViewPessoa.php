@@ -5,7 +5,11 @@ class ViewPessoa {
 
     private $telefone;
     private $controller;
+    private $dados;
 
+/*    private $nome;
+    private $endereco;
+*/
     function __construct() {
         $this->controller = new ControllerPessoa();
     }
@@ -18,6 +22,34 @@ class ViewPessoa {
         return $this->telefone;
     }
 
+    public function setDados($dados) {
+        $this->dados = $dados;
+    }
+
+    public function getDados() {
+        return $this->dados;
+    }
+
+    public function Salvar($dados) {
+        return $this->controller->cadastrarPessoa($dados);
+    }
+
+/*    public function setNome($nome) {
+        $this->nome = $nome;
+    }
+
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function setEndereco($endereco) {
+        $this->endereco = $endereco;
+    }
+
+    public function getEndereco() {
+        return $this->endereco;
+    }
+*/
     public function render() {
         $arr = $this->controller->buscarPessoa($this->getTelefone());
 
@@ -31,7 +63,7 @@ class ViewPessoa {
                 echo "<a href='lista_pedido.php?pessoa=".$row->getId()."'>Pedidos</a>";
             }
         } else {
-            echo 'Cliente inexistente.';
+            echo 'Cliente inexistente.&nbsp;&nbsp;<a href="new_pessoa.php">Adicionar</a>';
         }
         echo "&nbsp;&nbsp;<a href='javascript:history.back()'>Voltar</a>";
         echo "</body></html>";

@@ -1,7 +1,7 @@
 <?php
 abstract class Database {
 
-    public $conexao;
+    private $conexao;
 
     function __construct() {
     }
@@ -30,5 +30,13 @@ abstract class Database {
 
         self::__destruct();
         return $result;
+    }
+
+    public function insertDB($sql, $params=null) {
+        $query=$this->conexao->prepare($sql);
+        $query->execute($params);
+        $rs = $this->conexao->lastInsertID();
+        self::__destruct();
+        return $rs;
     }
 }
