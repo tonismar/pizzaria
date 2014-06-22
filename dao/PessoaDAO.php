@@ -24,16 +24,16 @@ class PessoaDAO extends Database {
     }
 
     public function insert($fields, $params=null) {
-        $fields = 'id,'.$fields;
-        $p = array('id' => 'null');
-        foreach ($params as $key => $value) {
-            $p[$key] = $value;
-        }
         $numparams="";
-        for ($i=0; $i<count($p); $i++) $numparams.=",?";
+        foreach ($params as $key => $value) {
+            $numparams .= ','.$key;
+        }
         $numparams = substr($numparams, 1);
+        //print_r($numparams); die;
+        //for ($i=0; $i<count($params); $i++) $numparams.=",?";
+        //$numparams = substr($numparams, 1);
         $sql = "INSERT INTO pessoas ($fields) VALUES ($numparams)";
-        $t=$this->insertDB($sql, $p);
+        $t=$this->insertDB($sql, $params);
         return $t;
     }
 
