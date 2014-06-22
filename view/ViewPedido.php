@@ -30,7 +30,7 @@ class ViewPedido {
                 echo "<br /><br />";
             }
         } else {
-            echo 'Zero resultados.';
+            echo 'Sem pedidos.';
         }
         echo "&nbsp&nbsp;<a href='javascript:history.back()'>Voltar</a>";
         echo "</body></html>";

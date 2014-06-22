@@ -31,7 +31,7 @@ class ViewPessoa {
                 echo "<a href='lista_pedido.php?pessoa=".$row->getId()."'>Pedidos</a>";
             }
         } else {
-            echo 'Zero resultados.';
+            echo 'Cliente inexistente.';
         }
         echo "&nbsp;&nbsp;<a href='javascript:history.back()'>Voltar</a>";
         echo "</body></html>";
