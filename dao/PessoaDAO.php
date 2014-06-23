@@ -29,9 +29,6 @@ class PessoaDAO extends Database {
             $numparams .= ','.$key;
         }
         $numparams = substr($numparams, 1);
-        //print_r($numparams); die;
-        //for ($i=0; $i<count($params); $i++) $numparams.=",?";
-        //$numparams = substr($numparams, 1);
         $sql = "INSERT INTO pessoas ($fields) VALUES ($numparams)";
         $t=$this->insertDB($sql, $params);
         return $t;

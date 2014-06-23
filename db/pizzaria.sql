@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.16)
 # Database: pizzaria
-# Generation Time: 2014-06-18 03:03:25 +0000
+# Generation Time: 2014-06-23 20:55:25 +0000
 # ************************************************************
 
 
@@ -33,6 +33,15 @@ CREATE TABLE `itens_pedido` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `itens_pedido` WRITE;
+/*!40000 ALTER TABLE `itens_pedido` DISABLE KEYS */;
+
+INSERT INTO `itens_pedido` (`id`, `id_pedido`, `sabores`, `tamanho`)
+VALUES
+	(1,1,'4 queijos','G');
+
+/*!40000 ALTER TABLE `itens_pedido` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table pedidos
@@ -43,11 +52,21 @@ DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE `pedidos` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `data` date NOT NULL,
-  `observacao` varchar(100) NOT NULL DEFAULT '',
+  `observacao` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT '',
   `total` float NOT NULL,
+  `id_pessoa` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `pedidos` WRITE;
+/*!40000 ALTER TABLE `pedidos` DISABLE KEYS */;
+
+INSERT INTO `pedidos` (`id`, `data`, `observacao`, `total`, `id_pessoa`)
+VALUES
+	(1,'2014-06-19','Este é um teste de pedido. Tem que lista na hora que chamar. Ok!',134.43,2);
+
+/*!40000 ALTER TABLE `pedidos` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table pessoas
@@ -68,8 +87,11 @@ LOCK TABLES `pessoas` WRITE;
 
 INSERT INTO `pessoas` (`id`, `nome`, `telefone`, `endereco`)
 VALUES
-	(1,'Tonismar','51 85761176','Saldanha da Gama 85 Harmonia apto 303'),
-	(2,'Márcia','51 85761177','Cel. Vicente 201 Centro apto 201-A');
+	(1,'Tonismar','5185761176','Saldanha da Gama 85 Harmonia apto 303'),
+	(2,'Márcia','5185761177','Cel. Vicente 201 Centro apto 201-A'),
+	(3,'Teste','84012767','R. Placido de Castro, 130 - Marechal Rondon'),
+	(4,'Bernardo','5130591176','Endereço Teste'),
+	(5,'Pessoa de Teste','5199999999','Av. Teste 6');
 
 /*!40000 ALTER TABLE `pessoas` ENABLE KEYS */;
 UNLOCK TABLES;
