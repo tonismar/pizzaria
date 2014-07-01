@@ -1,8 +1,8 @@
 <?php
-if ($_POST['telefone']) {
+if ($_GET['telefone']) {
     include_once('../view/ViewPessoa.php');
     $view = new ViewPessoa();
-    $view->setTelefone($_POST['telefone']);
+    $view->setTelefone($_GET['telefone']);
     $view->render();
 } else {
     echo "<!DOCTYPE html>

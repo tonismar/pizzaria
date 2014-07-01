@@ -5,7 +5,7 @@
     <title>Pizzaria</title>
 </head>
 <body>
-    <form action="lista_pessoa.php" method="post">
+    <form action="lista_pessoa.php" method="get">
         <label for="telefone">Telefone</label>
         <input type="text" name="telefone" value="" size="20"><br /><br />
         <input type="submit" name="Buscar" value="Buscar">

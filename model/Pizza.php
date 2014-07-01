@@ -2,25 +2,24 @@
 
 class Pizza {
 
-    private $sabores = array('4 queijos', 'bacon', 'calabresa', 'milho', 'catupiri');
-    private $tamanho = array('P', 'M', 'G', 'F');
-    private $observacao;
+    private $sabores;
+    private $tamanho;
     private $valor;
+
+    public function setSabores($sabores) {
+        $this->sabores = $sabores;
+    }
 
     public function getSabores() {
         return $this->sabores;
     }
 
+    public function setTamanho($tamanho) {
+        $this->tamanho = $tamanho;
+    }
+
     public function getTamanho() {
         return $this->tamanho;
-    }
-
-    public function setObservacao($obs) {
-        $this->observacao = $obs;
-    }
-
-    public function getObservacao() {
-        return $this->observacao;
     }
 
     public function setValor($valor) {
