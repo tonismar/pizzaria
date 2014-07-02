@@ -51,6 +51,7 @@
                         dataType: 'json',
                         data: {itens: itens, id_pessoa: id_pessoa, data: data, total: total},
                         success: function(response) {
+                            clear();
                             alert('Pedido salvo.');
                         },
                         error : function (XMLHttpRequest, ajaxOptions, thrownError) {
@@ -62,6 +63,17 @@
 
         });
 
+        function clear() {
+            $('#valor').val('');
+            $('#sabores').val('');
+            $('#tamanho').val('');
+            $('#tblitens tr').each( function() {
+                var t = $(this).find('td').eq(0).html();
+                if (parseInt(t) >= 1) {
+                    $('#tblitens tr:last').remove();
+                }
+            });
+        }
     </script>
 </head>
 <body>
@@ -92,7 +104,7 @@
                 </tr>
             </table>
         </div>
-        <input type='button' value='Salvar' id='salvar' name='salvar'>
+        <input type='button' value='Salvar' id='salvar' name='salvar'>&nbsp;&nbsp;<a href='javascript:history.back()'>Voltar</a>
     </form>
 </body>
 </html>

@@ -25,7 +25,7 @@ class ViewPedido {
         if (count($arr)>0) {
             foreach ($arr as $key => $row) {
                 echo "Data: ".$row->getData()."<br />".
-                     "Observação: ".utf8_encode($row->getObservacao())."<br />".
+                    // "Observação: ".utf8_encode($row->getObservacao())."<br />".
                      "Total: ".$row->getTotal();
                 echo "<br /><br />";
             }
