@@ -30,6 +30,7 @@
                 var i = 0;
                 var id_pessoa = $('#id_pessoa').val();
                 var data = $('#data').val();
+                var total = 0;
 
                 e.preventDefault();
                 $('#tblitens tr').each( function() {
@@ -38,6 +39,7 @@
                         itens[i] = {tamanho:$(this).find('td').eq(1).html(),
                                     sabores:$(this).find('td').eq(2).html(),
                                     valor:$(this).find('td').eq(3).html()};
+                        total = total + parseInt($(this).find('td').eq(3).html());
                         i = i + 1;
                     }
                 });
@@ -47,7 +49,7 @@
                         url: 'save_pedido.php',
                         type: 'POST',
                         dataType: 'json',
-                        data: {itens: itens, id_pessoa: id_pessoa, data: data},
+                        data: {itens: itens, id_pessoa: id_pessoa, data: data, total: total},
                         success: function(response) {
                             alert('Pedido salvo.');
                         },

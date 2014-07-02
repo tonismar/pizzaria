@@ -4,7 +4,7 @@ include_once('../controllers/ControllerPedido.php');
 class ViewPedido {
 
     private $pessoa;
-    private $controller;
+    public $controller;
 
     function __construct() {
         $this->controller = new ControllerPedido();

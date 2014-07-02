@@ -36,7 +36,9 @@ abstract class Database {
         $query=$this->conexao->prepare($sql);
         $query->execute($params);
         $rs = $this->conexao->lastInsertID();
-        self::__destruct();
+        $query->closeCursor();
+        // comentei a chamada da função destruct porque no loop perdia-se o objeto conexao.
+        //self::__destruct();
         return $rs;
     }
 }
