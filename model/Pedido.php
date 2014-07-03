@@ -6,6 +6,7 @@ class Pedido {
     private $data;
     private $observacao;
     private $total;
+    private $id;
     private $Pizzas = array();
 
     public function __construct() {
@@ -19,6 +20,14 @@ class Pedido {
             unset(${"$var"});
         }
         unset($var);
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function getId() {
+        return $this->id;
     }
 
     public function setData($data) {

@@ -28,7 +28,7 @@ abstract class Database {
             $result = $query->fetchAll(PDO::FETCH_OBJ);
         }
 
-        self::__destruct();
+        //self::__destruct();
         return $result;
     }
 
